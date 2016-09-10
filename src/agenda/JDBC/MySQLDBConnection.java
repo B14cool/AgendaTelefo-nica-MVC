@@ -15,9 +15,9 @@ public class MySQLDBConnection implements DBConnection {
     Statement statement;
     ResultSet resultSet;
     
+    @Override
     public Connection conectar() throws SQLException {
-        return DriverManager.getConnection("jdbc:mysql://localhost:+3306/contactos?"
-                                           + "useSSL=false&user=root&password=root");
+        return DriverManager.getConnection("jdbc:mysql://localhost/contactos", "root", "root");
     }
 
     @Override

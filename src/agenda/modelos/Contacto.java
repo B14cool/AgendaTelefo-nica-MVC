@@ -5,10 +5,10 @@ import java.util.logging.Logger;
 
 public class Contacto {
 
-    private int id = 0;
+    private int id = 0;  //PRIMARY KEY, PARA QUE COMIENCE EN 1 con el AUTO_INCREMENT
 
     private String nombre ;
-
+    
     private String numero ;
 
     private String correo ;
@@ -16,6 +16,27 @@ public class Contacto {
     private String ciudad ;
     
     private String twitter;
+    
+
+    public Contacto(String nombre, String numero, String correo, String ciudad, String twitter) {
+        this.nombre = nombre;
+        this.numero = numero;
+        this.correo = correo;
+        this.ciudad = ciudad;
+        this.twitter = twitter;
+    } 
+    
+    public Contacto() {
+        this.nombre = "";
+        this.numero = "";
+        this.correo = "";
+        this.ciudad = "";
+        this.twitter = "";
+    }
+    
+
+    
+
 
     public int getId() {
         return id;

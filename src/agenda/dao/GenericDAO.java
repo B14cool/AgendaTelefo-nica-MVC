@@ -14,6 +14,6 @@ public interface GenericDAO<T> {
     
     List<T> extraerTodos()throws DaoException;
     
-    T obtener(int id)throws DaoException;
+    T buscar(int id)throws DaoException;
    
 }
