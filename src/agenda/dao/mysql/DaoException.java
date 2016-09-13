@@ -1,4 +1,4 @@
-package agenda.JDBC;
+package agenda.dao.mysql;
 
 public class DaoException extends Exception {
 

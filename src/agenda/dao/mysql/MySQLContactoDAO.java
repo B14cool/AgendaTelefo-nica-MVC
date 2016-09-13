@@ -1,7 +1,7 @@
-package MySQL;
+package agenda.dao.mysql;
 
-import agenda.JDBC.DaoException;
-import agenda.modelos.Contacto;
+
+import agenda.modelo.Contacto;
 import agenda.dao.ContactoDAO;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,23 +9,23 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
-public class MySQLAContactoDAO implements ContactoDAO {
+public class MySQLContactoDAO implements ContactoDAO {
 
     final String INSERT = "INSERT INTO contactos(nombre, numero, correo, ciudad, twitter) VALUES(?, ?, ?, ?) ";
     final String UPDATE = "UPDATE contactos SET nombre = ?, numero = ?, correo = ?, ciudad = ?, twitter = ? WHERE id = ?";
     final String DELETE = "DELETE FROM contactos WHERE id"; //porque el id es único, puede haber dos personas con mismo nombre
     final String GETALL = "SELECT id, nombre, numero, correo, ciudad, twitter FROM contactos";
-    final String GETONE = "WHERE nombre = ?";
+    final String GETONE =  GETALL + "WHERE nombre = ?";
     private Connection con;
 
-    public MySQLAContactoDAO(Connection con) {
+    public MySQLContactoDAO(Connection con) {
         this.con = con;
     }
     
-//Transformar un ResulSet en un Contacto
+/**
+ * Transformar un ResulSet en un Contacto
+ * */
     private Contacto transformarResultSet(ResultSet rs) throws SQLException {
         String nombre = rs.getString("nombre");
         String numero = rs.getString("numero");
@@ -168,7 +168,7 @@ public class MySQLAContactoDAO implements ContactoDAO {
         return contactos;
     }
 
-    public Contacto buscar(int id) throws DaoException  {
+    public Contacto extraer(int id) throws DaoException  {
         PreparedStatement stat = null;
         ResultSet rs = null;
         Contacto contacto = null;

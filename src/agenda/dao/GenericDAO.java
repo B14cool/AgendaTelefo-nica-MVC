@@ -1,9 +1,9 @@
 package agenda.dao;
 
-import agenda.JDBC.DaoException;
+import agenda.dao.mysql.DaoException;
 import java.util.List;
 
-public interface GenericDAO<T> {
+public interface GenericDAO<T, k> {
 
     //CRUD
     void registrar (T algo) throws DaoException;
@@ -14,6 +14,6 @@ public interface GenericDAO<T> {
     
     List<T> extraerTodos()throws DaoException;
     
-    T buscar(int id)throws DaoException;
+    T extraer(int id)throws DaoException;
    
 }

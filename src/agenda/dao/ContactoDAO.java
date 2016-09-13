@@ -1,11 +1,9 @@
 
 package agenda.dao;
 
-import agenda.modelos.Contacto;
+import agenda.modelo.Contacto;
 
 
-public interface ContactoDAO extends GenericDAO <Contacto>  {
+public interface ContactoDAO extends GenericDAO <Contacto, Integer>  {
     
-    
-
 }

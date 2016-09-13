@@ -1,11 +1,10 @@
-package agenda.modelos;
+package agenda.modelo;
 
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public class Contacto {
 
-    private int id = 0;  //PRIMARY KEY, PARA QUE COMIENCE EN 1 con el AUTO_INCREMENT
+    private Integer id = null;  //PRIMARY KEY, PARA QUE COMIENCE EN 1 con el AUTO_INCREMENT
 
     private String nombre ;
     
@@ -17,8 +16,9 @@ public class Contacto {
     
     private String twitter;
     
+    
 
-    public Contacto(String nombre, String numero, String correo, String ciudad, String twitter) {
+    public Contacto (String nombre, String numero, String correo, String ciudad, String twitter) {
         this.nombre = nombre;
         this.numero = numero;
         this.correo = correo;
@@ -34,9 +34,6 @@ public class Contacto {
         this.twitter = "";
     }
     
-
-    
-
 
     public int getId() {
         return id;
