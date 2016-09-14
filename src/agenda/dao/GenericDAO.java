@@ -6,9 +6,9 @@ import java.util.List;
 public interface GenericDAO<T, k> {
 
     //CRUD
-    void registrar (T algo) throws DaoException;
+    void insertar (T algo) throws DaoException;
     
-    void actualizar (T algo)throws DaoException;
+    void modificar (T algo)throws DaoException;
     
     void eliminar (T algo)throws DaoException;
     

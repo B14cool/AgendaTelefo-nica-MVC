@@ -17,12 +17,13 @@ public class MySQLContactoDAO implements ContactoDAO {
     final String DELETE = "DELETE FROM contactos WHERE id"; //porque el id es único, puede haber dos personas con mismo nombre
     final String GETALL = "SELECT id, nombre, numero, correo, ciudad, twitter FROM contactos";
     final String GETONE =  GETALL + "WHERE nombre = ?";
+    
     private Connection con;
 
     public MySQLContactoDAO(Connection con) {
         this.con = con;
     }
-    
+   
 /**
  * Transformar un ResulSet en un Contacto
  * */
@@ -39,9 +40,8 @@ public class MySQLContactoDAO implements ContactoDAO {
         return contacto;
     }
 
-
     @Override
-    public void registrar(Contacto contacto) throws DaoException {
+    public void insertar(Contacto contacto) throws DaoException {
         PreparedStatement stat = null;
         ResultSet rs = null;
         try {
@@ -78,9 +78,8 @@ public class MySQLContactoDAO implements ContactoDAO {
         }
     }
 
-   
     @Override
-    public void actualizar(Contacto contacto) throws DaoException {
+    public void modificar(Contacto contacto) throws DaoException {
         PreparedStatement stat = null;
 
         try {
